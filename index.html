@@ -1,0 +1,466 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeRail MRS</title>
+    <script type="module" crossorigin src="./assets/index-DPV0VtKf.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Km6SuLK5.css">
+    <style>
+      .apk-download-link {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 9999;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 22px;
+        border-radius: 999px;
+        background: #f5b400;
+        color: #082b55;
+        font: 800 13px/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        letter-spacing: .02em;
+        text-transform: uppercase;
+        text-decoration: none;
+        box-shadow: 0 14px 34px rgba(8, 43, 85, .22);
+        border: 1px solid rgba(255, 255, 255, .55);
+      }
+
+      .apk-download-link:hover {
+        filter: brightness(.98);
+        transform: translateY(-1px);
+      }
+
+      @media (max-width: 640px) {
+        .apk-download-link {
+          right: 14px;
+          bottom: 14px;
+          min-height: 42px;
+          padding: 0 16px;
+          font-size: 12px;
+        }
+      }
+
+      .zegra-docs-panel {
+        width: min(1224px, calc(100% - 56px));
+        margin: 26px auto;
+        border: 1px solid #d7deea;
+        border-left: 6px solid #f4b400;
+        background:
+          linear-gradient(110deg, rgba(255, 255, 255, .96) 0 56%, rgba(234, 242, 251, .92) 56.2%),
+          radial-gradient(circle at 92% 8%, rgba(0, 73, 142, .12), transparent 34%);
+        box-shadow: 0 18px 42px rgba(27, 50, 85, .12);
+        padding: 28px;
+      }
+
+      .zegra-docs-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+
+      .zegra-docs-eyebrow {
+        margin: 0 0 8px;
+        color: #00498e;
+        font: 800 12px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        letter-spacing: .03em;
+        text-transform: uppercase;
+      }
+
+      .zegra-docs-title {
+        margin: 0;
+        color: #1b3255;
+        font: 800 clamp(24px, 3vw, 34px)/1.12 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .zegra-docs-text {
+        max-width: 600px;
+        margin: 8px 0 0;
+        color: #5a667a;
+        font: 500 15px/1.55 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .zegra-docs-badge {
+        flex: none;
+        background: #e2f4ea;
+        color: #126d39;
+        border-radius: 999px;
+        padding: 10px 14px;
+        font: 800 12px/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        text-transform: uppercase;
+      }
+
+      .zegra-docs-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .zegra-doc-card {
+        display: grid;
+        gap: 12px;
+        min-height: 174px;
+        padding: 20px;
+        border: 1px solid #d7deea;
+        border-top: 5px solid #00498e;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, .92);
+        text-decoration: none;
+        color: #1b3255;
+        transition: transform .16s ease, box-shadow .16s ease;
+      }
+
+      .zegra-doc-card:nth-child(2) {
+        border-top-color: #20884f;
+      }
+
+      .zegra-doc-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 34px rgba(27, 50, 85, .16);
+      }
+
+      .zegra-doc-card span {
+        color: #00498e;
+        font: 900 12px/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        text-transform: uppercase;
+      }
+
+      .zegra-doc-card strong {
+        color: #1b3255;
+        font: 800 22px/1.18 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .zegra-doc-card small {
+        color: #667085;
+        font: 500 14px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .zegra-doc-card em {
+        width: fit-content;
+        margin-top: auto;
+        background: #f4b400;
+        color: #082b55;
+        border-radius: 999px;
+        padding: 10px 14px;
+        font: 900 12px/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        text-transform: uppercase;
+        font-style: normal;
+      }
+
+      .zegra-footer {
+        width: 100%;
+        margin: 0;
+        padding: 28px 18px;
+        background: #0d1117;
+        color: #c9d1d9;
+        text-align: center;
+        font: 500 13px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .zegra-footer-inner {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .zegra-footer-logo {
+        width: 24px;
+        height: 24px;
+        border-radius: 7px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .zegra-footer strong {
+        color: #f0f6fc;
+        font-weight: 700;
+      }
+
+      .zegra-pdf-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        display: none;
+        grid-template-rows: auto minmax(0, 1fr);
+        background: #071d34;
+      }
+
+      .zegra-pdf-modal.open {
+        display: grid;
+      }
+
+      .zegra-pdf-toolbar {
+        display: grid;
+        grid-template-columns: minmax(180px, 1fr) minmax(220px, 420px) auto auto;
+        gap: 12px;
+        align-items: center;
+        padding: 14px 18px;
+        background: linear-gradient(90deg, #ffffff 0%, #f1f6fb 100%);
+        border-bottom: 4px solid #f4b400;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, .2);
+      }
+
+      .zegra-pdf-title {
+        min-width: 0;
+        color: #1b3255;
+        font: 900 16px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .zegra-pdf-title span {
+        display: block;
+        color: #00498e;
+        font-size: 11px;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+      }
+
+      .zegra-pdf-search {
+        display: flex;
+        min-width: 0;
+        border: 1px solid #c8d4e3;
+        background: #fff;
+      }
+
+      .zegra-pdf-search input {
+        min-width: 0;
+        flex: 1;
+        border: 0;
+        padding: 12px 14px;
+        color: #1b3255;
+        outline: 0;
+        font: 700 14px/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .zegra-pdf-search button,
+      .zegra-pdf-open,
+      .zegra-pdf-close {
+        border: 0;
+        padding: 0 16px;
+        min-height: 42px;
+        background: #00498e;
+        color: #fff;
+        font: 900 12px/1.1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        text-transform: uppercase;
+      }
+
+      .zegra-pdf-open {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .zegra-pdf-close {
+        background: #f4b400;
+        color: #082b55;
+      }
+
+      .zegra-pdf-frame {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        background: #fff;
+      }
+
+      @media (max-width: 760px) {
+        .zegra-docs-panel {
+          width: calc(100% - 28px);
+        }
+
+        .zegra-docs-head,
+        .zegra-docs-grid {
+          grid-template-columns: 1fr;
+          display: grid;
+        }
+
+        .zegra-docs-badge {
+          width: fit-content;
+        }
+
+        .zegra-pdf-toolbar {
+          grid-template-columns: 1fr auto;
+          gap: 10px;
+          padding: 12px;
+        }
+
+        .zegra-pdf-search {
+          grid-column: 1 / -1;
+          order: 3;
+        }
+
+        .zegra-pdf-open {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function () {
+        var ua = navigator.userAgent || "";
+        var isWebView = /; wv\)/i.test(ua) || /\bwv\b/i.test(ua);
+        var isStandalone = window.matchMedia && window.matchMedia("(display-mode: standalone)").matches;
+
+        if (isWebView || isStandalone) return;
+
+        var link = document.createElement("a");
+        link.className = "apk-download-link";
+        link.href = "./downloads/SafeRail-MRS.apk";
+        link.download = "SafeRail-MRS.apk";
+        link.textContent = "Baixar APK";
+        link.setAttribute("aria-label", "Baixar aplicativo SafeRail MRS para Android");
+        document.body.appendChild(link);
+      })();
+    </script>
+    <script>
+  (function () {
+    var docsHtml =
+      '<section class="zegra-docs-panel" data-zegra-docs="true">' +
+        '<div class="zegra-docs-head">' +
+          '<div>' +
+            '<p class="zegra-docs-eyebrow">Documentos operacionais</p>' +
+            '<h2 class="zegra-docs-title">ROF e MOF dispon&iacute;veis para consulta r&aacute;pida.</h2>' +
+            '<p class="zegra-docs-text">Material de apoio para refor&ccedil;ar procedimentos, regras operacionais e decis&otilde;es seguras antes da atividade.</p>' +
+          '</div>' +
+          '<span class="zegra-docs-badge">Consulta interna</span>' +
+        '</div>' +
+        '<div class="zegra-docs-grid">' +
+          '<a class="zegra-doc-card" href="./docs/ROF2017.pdf" data-pdf="./docs/ROF2017.pdf" data-title="Regulamento de Opera&ccedil;&otilde;es Ferrovi&aacute;rias">' +
+            '<span>ROF</span>' +
+            '<strong>Regulamento de Opera&ccedil;&otilde;es Ferrovi&aacute;rias</strong>' +
+            '<small>Regras operacionais para consulta e alinhamento da equipe.</small>' +
+            '<em>Consultar no app</em>' +
+          '</a>' +
+          '<a class="zegra-doc-card" href="./docs/MOF-MRS.pdf" data-pdf="./docs/MOF-MRS.pdf" data-title="Manual de Opera&ccedil;&otilde;es Ferrovi&aacute;rias">' +
+            '<span>MOF</span>' +
+            '<strong>Manual de Opera&ccedil;&otilde;es Ferrovi&aacute;rias</strong>' +
+            '<small>Manual de refer&ecirc;ncia para procedimentos e boas pr&aacute;ticas operacionais.</small>' +
+            '<em>Consultar no app</em>' +
+          '</a>' +
+        '</div>' +
+      '</section>';
+
+    var currentPdf = '';
+
+    function pdfUrl(term) {
+      var fragment = 'toolbar=1&navpanes=0&view=FitH';
+      if (term) fragment += '&search=' + encodeURIComponent(term);
+      return currentPdf + '#' + fragment;
+    }
+
+    function ensurePdfModal() {
+      var modal = document.querySelector('[data-zegra-pdf-modal="true"]');
+      if (modal) return modal;
+
+      modal = document.createElement('section');
+      modal.className = 'zegra-pdf-modal';
+      modal.setAttribute('data-zegra-pdf-modal', 'true');
+      modal.innerHTML =
+        '<div class="zegra-pdf-toolbar">' +
+          '<div class="zegra-pdf-title"><span>Consulta operacional</span><strong data-zegra-pdf-title></strong></div>' +
+          '<form class="zegra-pdf-search" data-zegra-pdf-search>' +
+            '<input type="search" placeholder="Pesquisar palavra no documento" aria-label="Pesquisar no documento">' +
+            '<button type="submit">Pesquisar</button>' +
+          '</form>' +
+          '<a class="zegra-pdf-open" data-zegra-pdf-open href="#" target="_blank" rel="noopener">Abrir externo</a>' +
+          '<button class="zegra-pdf-close" type="button" data-zegra-pdf-close>Fechar</button>' +
+        '</div>' +
+        '<iframe class="zegra-pdf-frame" data-zegra-pdf-frame title="Visualizador de documento operacional"></iframe>';
+
+      document.body.appendChild(modal);
+
+      modal.querySelector('[data-zegra-pdf-close]').addEventListener('click', closePdf);
+      modal.querySelector('[data-zegra-pdf-search]').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var term = modal.querySelector('input').value.trim();
+        modal.querySelector('[data-zegra-pdf-frame]').src = pdfUrl(term);
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closePdf();
+      });
+
+      return modal;
+    }
+
+    function openPdf(path, title) {
+      currentPdf = path;
+      var modal = ensurePdfModal();
+      modal.querySelector('[data-zegra-pdf-title]').innerHTML = title || 'Documento operacional';
+      modal.querySelector('[data-zegra-pdf-open]').href = path;
+      modal.querySelector('input').value = '';
+      modal.querySelector('[data-zegra-pdf-frame]').src = pdfUrl('');
+      modal.classList.add('open');
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePdf() {
+      var modal = document.querySelector('[data-zegra-pdf-modal="true"]');
+      if (!modal) return;
+      modal.classList.remove('open');
+      modal.querySelector('[data-zegra-pdf-frame]').src = 'about:blank';
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }
+
+    function isHomeVisible() {
+      var active = document.querySelector('nav button.active');
+      return !active || /in[i\u00ed]cio/i.test(active.textContent || '');
+    }
+
+    function syncDocs() {
+      var existing = document.querySelector('[data-zegra-docs="true"]');
+      if (!isHomeVisible()) {
+        if (existing) existing.remove();
+        return;
+      }
+
+      var anchor = document.querySelector('.homeMrsHero') || document.querySelector('.heroBand');
+      if (!anchor || existing) return;
+      anchor.insertAdjacentHTML('afterend', docsHtml);
+    }
+
+    function ensureFooter() {
+      if (document.querySelector('[data-zegra-footer="true"]')) return;
+      var root = document.getElementById('root');
+      if (!root || !root.children.length) return;
+
+      var footer = document.createElement('footer');
+      footer.className = 'zegra-footer';
+      footer.setAttribute('data-zegra-footer', 'true');
+      footer.innerHTML = '<div class="zegra-footer-inner"><img class="zegra-footer-logo" src="./zegra-logo.jpeg" alt="Zegra Sistemas"><span>&copy; 2026 <strong>Zegra Sistemas</strong>. Todos os direitos reservados.</span></div>';
+      document.body.appendChild(footer);
+    }
+
+    var timer;
+    function schedule() {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        syncDocs();
+        ensureFooter();
+      }, 80);
+    }
+
+    document.addEventListener('click', function (event) {
+      var card = event.target.closest && event.target.closest('[data-pdf]');
+      if (card) {
+        event.preventDefault();
+        openPdf(card.getAttribute('data-pdf'), card.getAttribute('data-title'));
+      }
+      schedule();
+    }, true);
+
+    window.addEventListener('load', schedule);
+    new MutationObserver(schedule).observe(document.body, { childList: true, subtree: true });
+    schedule();
+  })();
+</script>
+  </body>
+</html>
+
